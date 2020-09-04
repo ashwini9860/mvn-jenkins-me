@@ -77,12 +77,12 @@ pipeline {
             when {
                 branch 'master'
             }
-            withCredentials([[$class: 'UsernamePasswordMultiBinding', 
-    		credentialsId: 'github', 
-    		usernameVariable: 'GIT_USERNAME',
-    		passwordVariable: 'GIT_PASSWORD'
-	    ]])
             steps {
+                withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                	credentialsId: 'github',
+                	usernameVariable: 'GIT_USERNAME',
+                	passwordVariable: 'GIT_PASSWORD'
+                ]])
                 script {
                    developmentVersion = readMavenPom().getVersion()
                    releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
