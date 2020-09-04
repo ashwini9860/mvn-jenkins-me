@@ -1,0 +1,30 @@
+alice-object-service:
+  get-object:
+    request-topic: "GET_OBJECT_REQUEST_TOPIC"
+    response-topic: "GET_OBJECT_RESPONSE_TOPIC"
+    error-topic: "GET_OBJECT_ERROR_TOPIC"
+  get-object-for-nodes:
+    request-topic: "GET_OBJECT_FOR_NODES_REQUEST_TOPIC"
+    response-topic: "GET_OBJECT_FOR_NODES_RESPONSE_TOPIC"
+    error-topic: "GET_OBJECT_FOR_NODES_ERROR_TOPIC"
+  get-object-for-node:
+    request-topic: "GET_OBJECT_FOR_NODE_REQUEST_TOPIC"
+    response-topic: "GET_OBJECT_FOR_NODE_RESPONSE_TOPIC"
+    error-topic: "GET_OBJECT_FOR_NODE_ERROR_TOPIC"
+  save-object:
+    request-topic: "SAVE_OBJECT_REQUEST_TOPIC"
+    response-topic: "SAVE_OBJECT_RESPONSE_TOPIC"
+    error-topic: "SAVE_OBJECT_ERROR_TOPIC"
+  update-object:
+    request-topic: "UPDATE_OBJECT_REQUEST_TOPIC"
+    response-topic: "UPDATE_OBJECT_RESPONSE_TOPIC"
+    error-topic: "UPDATE_OBJECT_ERROR_TOPIC"
+  delete-object:
+    request-topic: "DELETE_OBJECT_REQUEST_TOPIC"
+    response-topic: "DELETE_OBJECT_RESPONSE_TOPIC"
+    error-topic: "DELETE_OBJECT_ERROR_TOPIC"
+  node-request:
+    request-topic: "NODE_REQUEST_TOPIC"
+    response-topic: "NODE_RESPONSE_TOPIC"
+    error-topic: "NODE_ERROR_TOPIC"
+
