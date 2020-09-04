@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                   sh """
-                  mvn verify
+                  #mvn verify
                   echo "Executing stage -- acceptance --"
                   """
                 }
