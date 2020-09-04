@@ -94,7 +94,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <!- <updateReleaseInfo>true</updateReleaseInfo> -->
+                    <!-- <updateReleaseInfo>true</updateReleaseInfo> -->
                     <localCheckout>true</localCheckout>
                     <pushChanges>false</pushChanges>
                 </configuration>
