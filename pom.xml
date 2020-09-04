@@ -134,7 +134,7 @@
     </profiles>
 
     <scm>
-        <connection>scm:git:https://gitlab.com/idealmediaworks/stefanini/alice-aef-engine.git</connection>
+        <connection>scm:git:https://github.com/ashwini9860/mvn-jenkins-me.git</connection>
         <!-- <tag>HEAD</tag> -->
     </scm>
 </project>
