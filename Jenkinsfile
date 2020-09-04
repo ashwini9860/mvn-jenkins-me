@@ -77,6 +77,11 @@ pipeline {
             when {
                 branch 'master'
             }
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', 
+    		credentialsId: 'github', 
+    		usernameVariable: 'GIT_USERNAME',
+    		passwordVariable: 'GIT_PASSWORD'
+	    ]])
             steps {
                 script {
                    developmentVersion = readMavenPom().getVersion()
