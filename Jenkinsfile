@@ -75,7 +75,7 @@ pipeline {
 
         stage('master-release') {
             when {
-                branch 'jenkins-test'
+                branch 'master'
             }
             steps {
                 script {
