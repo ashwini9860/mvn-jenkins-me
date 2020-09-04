@@ -58,7 +58,7 @@ pipeline {
 
         stage('develop-release') {
             when {
-                branch 'master'
+                branch 'develop'
             }
             steps {
                 script {
