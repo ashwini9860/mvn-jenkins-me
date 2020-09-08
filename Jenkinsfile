@@ -60,6 +60,7 @@ pipeline {
             }
             steps {
                 script {
+                   def releaseVersion  = "latest"
                    sh """
                    echo "Executing stage -- nexus --"
                    mvn deploy -X
@@ -74,6 +75,7 @@ pipeline {
             }
             steps {
                 script {
+                   def releaseVersion  = "latest"
                    sh """
                    echo "Executing stage -- nexus --"
                    mvn deploy -X
