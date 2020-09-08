@@ -78,18 +78,12 @@ pipeline {
                 branch 'master'
             }
             steps {
-                //withCredentials([[$class: 'UsernamePasswordMultiBinding',
-                //	credentialsId: 'github',
-                //	usernameVariable: 'GIT_USERNAME',
-                //	passwordVariable: 'GIT_PASSWORD'
-                //]])
                 script {
                    developmentVersion = readMavenPom().getVersion()
                    releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
                    sh """
                    echo ${releaseVersion}
                    echo "Executing release"
-                   #echo "username:- $GIT_USERNAME"
                    mvn -B release:clean
                    mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dusername=ashwini9860 -Dpassword=Ashwini@1790 -Dtag=v${releaseVersion}
                    #mvn deploy  -Drevision=v${releaseVersion}
