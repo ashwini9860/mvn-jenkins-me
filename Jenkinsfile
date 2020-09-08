@@ -85,8 +85,7 @@ pipeline {
                    echo ${releaseVersion}
                    echo "Executing release"
                    mvn -B release:clean
-                   mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dusername=ashwini9860 -Dpassword=Ashwini@1790 -Dtag=v${releaseVersion}
-                   #mvn deploy  -Drevision=v${releaseVersion}
+                   mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dtag=v${releaseVersion}
                    """
                 }
             }
