@@ -36,10 +36,8 @@ pipeline {
             steps {
                 script {
                    sh """
-                   java -version
-                   mvn --version
+                   echo 'Executing stage -- build --'
                    mvn clean package -DskipTests -U
-                   echo "Executing stage -- build --"
                    """
                 }
             }
@@ -49,8 +47,8 @@ pipeline {
             steps {
                 script {
                   sh """
-                  #mvn verify
                   echo "Executing stage -- acceptance --"
+                  mvn verify
                   """
                 }
             }
@@ -58,16 +56,25 @@ pipeline {
 
         stage('develop-release') {
             when {
-                branch 'master'
+                branch 'develop'
             }
             steps {
                 script {
-                   def releaseVersion  = "latest"
-                   sh """
-                   echo ${releaseVersion}
                    echo "Executing stage -- nexus --"
                    mvn deploy -X
-                   echo "Executing stage -- sonarqube --"
+                   """
+                }
+            }
+        }
+
+        stage('hotfix-release') {
+            when {
+                branch 'hotfix*'
+            }
+            steps {
+                script {
+                   echo "Executing stage -- nexus --"
+                   mvn deploy -X
                    """
                 }
             }
@@ -92,30 +99,12 @@ pipeline {
                 }
             }
         }
-
-        stage("docker") {
-            steps {
-                script {
-                    if(BRANCH_NAME == 'jenkins-test') {
-                        def releaseVersion  = "latest"
-                        echo "${releaseVersion}"
-                    }
-                    else if(BRANCH_NAME == 'master') {
-                        developmentVersion = readMavenPom().getVersion()
-                        releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
-                        echo "${releaseVersion}"
-                    }
-                }
-           }
-       }
  
         stage('Trigger Branch Build') {
-        steps {
-                    build job: "alice-logger", wait: false
+            steps {
+            	build job: "alice-logger", wait: false
+            }
         }
-    }
-
-
 
     }
 }
