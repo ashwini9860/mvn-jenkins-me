@@ -91,7 +91,7 @@ pipeline {
                    echo "Executing release"
                    echo "username:- $GIT_USERNAME"
                    mvn -B release:clean
-                   mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dusername=$GITLAB_USERNAME -Dpassword=$GITLAB_PASSWORD -Dtag=v${releaseVersion}
+                   mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dusername=$GIT_USERNAME -Dpassword=$GIT_PASSWORD -Dtag=v${releaseVersion}
                    #mvn deploy  -Drevision=v${releaseVersion}
                    """
                 }
