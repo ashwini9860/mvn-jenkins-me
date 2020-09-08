@@ -49,13 +49,13 @@
     <!-- addming new urls -->
         <snapshotRepository>
             <id>nexus-snapshots</id>
-            <!-- <url>http://13.233.138.92:8081/repository/maven-snapshots/</url> -->
-            <url>http://13.233.138.92:8081/nexus/content/repositories/maven-snapshots/</url>
+            <!-- <url>http://13.233.28.130:8081/repository/maven-snapshots/</url> -->
+            <url>http://13.233.28.130:8081/nexus/content/repositories/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>nexus-releases</id>
-            <url>http://13.233.138.92:8081/nexus/content/repositories/maven-releases/</url>
-            <!-- <url>http://13.233.138.92:8081/repository/maven-releases/</url> -->
+            <url>http://13.233.28.130:8081/nexus/content/repositories/maven-releases/</url>
+            <!-- <url>http://13.233.28.130:8081/repository/maven-releases/</url> -->
         </repository>
     </distributionManagement>
    
