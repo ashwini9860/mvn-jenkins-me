@@ -60,6 +60,7 @@ pipeline {
             }
             steps {
                 script {
+                   sh """
                    echo "Executing stage -- nexus --"
                    mvn deploy -X
                    """
@@ -73,6 +74,7 @@ pipeline {
             }
             steps {
                 script {
+                   sh """
                    echo "Executing stage -- nexus --"
                    mvn deploy -X
                    """
