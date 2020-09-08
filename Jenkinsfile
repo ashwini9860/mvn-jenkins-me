@@ -78,15 +78,17 @@ pipeline {
                 branch 'master'
             }
             steps {
-                script {
-                   developmentVersion = readMavenPom().getVersion()
-                   releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
-                   sh """
-                   echo ${releaseVersion}
-                   echo "Executing release"
-                   mvn -B release:clean
-                   mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dtag=v${releaseVersion}
-                   """
+  		withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        script {
+                            developmentVersion = readMavenPom().getVersion()
+                            releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
+                            sh """
+                            echo ${releaseVersion}
+                            echo "Executing release"
+                            mvn -B release:clean
+                            mvn -B release:prepare release:perform -Dresume=false -Darguments=\"-DskipTests\" -Dusername=$USERNAME -Dpassword=$PASSWORD -Dtag=v${releaseVersion}
+                            """
+                        }
                 }
             }
         }

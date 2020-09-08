@@ -13,7 +13,6 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.javadoc.skip>true</maven.javadoc.skip>
-        <project.scm.id>mygit</project.scm.id>
     </properties>
 
     <dependencies>
