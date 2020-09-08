@@ -135,6 +135,6 @@
 
     <scm>
         <connection>scm:git:https://github.com/ashwini9860/mvn-jenkins-me.git</connection>
-        <!-- <tag>HEAD</tag> -->
+          	<tag>HEAD</tag>
     </scm>
 </project>
