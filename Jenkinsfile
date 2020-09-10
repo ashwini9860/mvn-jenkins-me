@@ -107,7 +107,7 @@ pipeline {
 
         stage("docker") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'mydocker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 	script {
                             docker login -u $USERNAME -p $PASSWORD
                     	    if(BRANCH_NAME == 'develop') {
