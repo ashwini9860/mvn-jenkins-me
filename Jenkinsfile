@@ -3,6 +3,7 @@ pipeline {
     agent any
     tools {
         maven "maven 3.6.3"
+        dockerTool "docker"
     }
 
     options {
@@ -103,6 +104,32 @@ pipeline {
                 }
             }
         }
+
+        stage("docker") {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                	script {
+                            docker login -u $USERNAME -p $PASSWORD
+                    	    if(BRANCH_NAME == 'develop') {
+                        	def releaseVersion  = "latest"
+                        	echo "${releaseVersion}
+                        
+                    	    }
+                    	    else if(BRANCH_NAME == 'master') {
+                        	developmentVersion = readMavenPom().getVersion()
+                        	releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
+                        	echo "${releaseVersion}"
+			    }
+                                docker build -t auchoudhari/aef:${releaseVersion} .
+				docker push auchoudhari/aef:${releaseVersion}
+     
+				sleep 5
+				docker rmi auchoudhari/aef:${releaseVersion}
+                	}
+                }
+           }
+       }
+
  
         stage('Trigger Branch Build') {
             steps {
