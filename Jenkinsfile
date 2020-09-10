@@ -112,7 +112,7 @@ pipeline {
                             docker login -u $USERNAME -p $PASSWORD
                     	    if(BRANCH_NAME == 'develop') {
                         	def releaseVersion  = "latest"
-                        	echo "${releaseVersion}
+                        	echo "${releaseVersion}"
                         
                     	    }
                     	    else if(BRANCH_NAME == 'master') {
