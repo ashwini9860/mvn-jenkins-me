@@ -4,7 +4,7 @@
 
     <groupId>com.alice</groupId>
     <artifactId>alice-aef-engine</artifactId>
-    <version>0.0.19-SNAPSHOT</version>
+    <version>0.0.19</version>
     <name>alice-aef-engine</name>
     <description>API for Alice Event Fabric</description>
 
@@ -128,6 +128,6 @@
 
     <scm>
         <connection>scm:git:https://github.com/ashwini9860/mvn-jenkins-me.git</connection>
-          	<tag>HEAD</tag>
+          	<tag>v0.0.19</tag>
     </scm>
 </project>
