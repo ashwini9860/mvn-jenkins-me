@@ -120,11 +120,13 @@ pipeline {
                         	releaseVersion = developmentVersion.replace('-SNAPSHOT', '')
                         	echo "${releaseVersion}"
 			    }
-                                docker build -t auchoudhari/aef:${releaseVersion} .
+                                sh """
+				docker build -t auchoudhari/aef:${releaseVersion} .
 				docker push auchoudhari/aef:${releaseVersion}
      
 				sleep 5
 				docker rmi auchoudhari/aef:${releaseVersion}
+				"""
                 	}
                 }
            }
