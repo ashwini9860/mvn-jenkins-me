@@ -109,7 +109,6 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'mydocker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 	script {
-                            docker login -u $USERNAME -p $PASSWORD
                     	    if(BRANCH_NAME == 'develop') {
                         	def releaseVersion  = "latest"
                         	echo "${releaseVersion}"
@@ -121,6 +120,7 @@ pipeline {
                         	echo "${releaseVersion}"
 			    }
                                 sh """
+                                docker login -u $USERNAME -p $PASSWORD
 				docker build -t auchoudhari/aef:${releaseVersion} .
 				docker push auchoudhari/aef:${releaseVersion}
      
